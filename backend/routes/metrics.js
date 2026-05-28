@@ -4,7 +4,10 @@ const { getAllMetrics } = require('../services/systemMetrics');
 
 router.get('/', async (req, res) => {
     const metrics = await getAllMetrics();
-    res.json(metrics);
+    res.json({ 
+        nodeId: process.env.NODE_ID || 'local',
+        metrics 
+    });
 });
 
 module.exports = router;

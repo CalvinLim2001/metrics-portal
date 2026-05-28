@@ -20,7 +20,10 @@ wss.on('connection', (ws) => {
     const interval = setInterval(async () => {
         if (ws.readyState === WebSocket.OPEN) {
             const metrics = await getAllMetrics();
-            ws.send(JSON.stringify({ nodeId: NODE_ID, metrics }));
+            ws.send(JSON.stringify({ 
+            nodeId: NODE_ID, 
+            metrics 
+}));
         }
     }, 2000);
 
