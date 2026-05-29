@@ -29,7 +29,25 @@ export interface Metrics {
 export class MetricsService {
   constructor(private http: HttpClient) {}
 
-  getMetrics(): Observable<Metrics> {
-    return this.http.get<Metrics>('/api/metrics');
+  getMetrics(): Observable<any> {
+  return new Observable(observer => {
+    const ws = new WebSocket('ws://localhost:3000');
+    
+    ws.onmessage = (event) => {
+      observer.next(JSON.parse(event.data));
+    };
+
+    ws.onerror = (error) => {
+      observer.error(error);
+    };
+
+    ws.onclose = () => {
+      observer.complete();
+    };
+
+    return () => {
+      ws.close();
+    };
+  });
   }
 }
