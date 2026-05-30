@@ -1,8 +1,0 @@
-{
-  "nodeId": "local",
-  "metrics": {
-    "cpu": { "currentLoad": 45.0, "severity": "warning" },
-    "memory": { "totalGB": 16.5, "freeGB": 5.3, "usedGB": 11.2, "severity": "warning" },
-    "network": { "downloadMBps": 0.5, "uploadMBps": 0.1, "downloadSeverity": "info", "uploadSeverity": "info" }
-  }
-}

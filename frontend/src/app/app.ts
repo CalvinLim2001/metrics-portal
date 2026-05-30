@@ -5,6 +5,7 @@ import { MatTableModule, MatTableDataSource  } from '@angular/material/table';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DestroyRef, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 const severityOrder: Record<string, number> = {
   'info': 1,
@@ -13,7 +14,7 @@ const severityOrder: Record<string, number> = {
 };
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatTableModule, MatSortModule],
+  imports: [RouterOutlet, MatTableModule, MatSortModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -24,7 +25,7 @@ export class App implements OnInit, AfterViewInit {
    selectedFilter = 'all';
    metricsData = new MatTableDataSource<any>([]);
    selectedCategory = '';
-  
+   isConnecting = true;
      ngAfterViewInit() {
     this.metricsData.sort = this.sort;
 
@@ -89,6 +90,7 @@ export class App implements OnInit, AfterViewInit {
      .pipe(takeUntilDestroyed(this.destroyRef)).subscribe(data => {
       this.metricsData.data = [data];
       this.cdr.detectChanges();
+      this.isConnecting = false;
     });
   }
 //   ngOnInit() {
