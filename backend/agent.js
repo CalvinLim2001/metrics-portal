@@ -9,8 +9,6 @@ const PORT = 3000;
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const NODE_ID = process.env.NODE_ID || 'local';
-const fs = require('fs');
-const path = require('path');
 app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(express.json());
 

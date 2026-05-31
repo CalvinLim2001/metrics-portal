@@ -6,6 +6,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DestroyRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MetricsChart } from './components/metrics-chart/metrics-chart';
 
 const severityOrder: Record<string, number> = {
   'info': 1,
@@ -14,7 +15,7 @@ const severityOrder: Record<string, number> = {
 };
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatTableModule, MatSortModule, CommonModule],
+  imports: [RouterOutlet, MatTableModule, MatSortModule, CommonModule, MetricsChart],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -22,6 +23,7 @@ export class App implements OnInit, AfterViewInit {
   private destroyRef = inject(DestroyRef);
   @ViewChild(MatSort) sort!: MatSort;
   protected readonly title = signal('frontend');
+  latestMetrics: any = null;
    selectedFilter = 'all';
    metricsData = new MatTableDataSource<any>([]);
    selectedCategory = '';
@@ -89,17 +91,11 @@ export class App implements OnInit, AfterViewInit {
     this.metricsService.getMetrics()
      .pipe(takeUntilDestroyed(this.destroyRef)).subscribe(data => {
       this.metricsData.data = [data];
+      this.latestMetrics = data;
       this.cdr.detectChanges();
       this.isConnecting = false;
     });
   }
-//   ngOnInit() {
-//   this.metricsData.data = [
-//     { nodeId: 'local', metrics: { cpu: { currentLoad: 85, severity: 'critical' }, memory: { totalGB: 16.5, freeGB: 5.3, usedGB: 11.2, severity: 'warning' }, network: { downloadMBps: 0, uploadMBps: 0, downloadSeverity: 'info', uploadSeverity: 'info' } } },
-//     { nodeId: 'local', metrics: { cpu: { currentLoad: 45, severity: 'warning' }, memory: { totalGB: 16.5, freeGB: 9.0, usedGB: 7.5, severity: 'info' }, network: { downloadMBps: 3.5, uploadMBps: 0, downloadSeverity: 'critical', uploadSeverity: 'info' } } },
-//     { nodeId: 'local', metrics: { cpu: { currentLoad: 10, severity: 'info' }, memory: { totalGB: 16.5, freeGB: 12.0, usedGB: 4.5, severity: 'info' }, network: { downloadMBps: 0, uploadMBps: 0, downloadSeverity: 'info', uploadSeverity: 'info' } } }
-//   ];
-// }
 
 applyFilter(severity: string) {
   this.selectedFilter = severity;

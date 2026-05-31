@@ -1,5 +1,7 @@
 <div class="layout">
 
+<app-metrics-chart [latestMetrics]="latestMetrics"></app-metrics-chart>
+
 <div class="table-container">
       @if (isConnecting) {
       <div class="connecting">
@@ -22,7 +24,7 @@
 </td>
   </ng-container>
   <ng-container matColumnDef="MemoryTotalColumn">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Memory Usage: </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Memory Total: </th>
     <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.totalGB }} </td>
   </ng-container>
     <ng-container matColumnDef="MemoryFreeColumn">

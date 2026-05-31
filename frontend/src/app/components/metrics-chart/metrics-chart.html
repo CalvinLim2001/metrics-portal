@@ -1,0 +1,17 @@
+<div class="chart-container">
+  <canvas baseChart #cpuChart
+    [data]="cpuData"
+    [options]="cpuOptions"
+    type="line">
+  </canvas>
+    <canvas baseChart #memoryChart
+        [data]="memoryData"
+        [options]="memoryOptions"
+        type="line">
+    </canvas>
+    <canvas baseChart #networkChart
+  [data]="networkData"
+  [options]="networkOptions"
+  type="line">
+</canvas>
+</div>
