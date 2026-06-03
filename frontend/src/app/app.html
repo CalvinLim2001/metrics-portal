@@ -15,7 +15,7 @@
   </ng-container>  
   <ng-container matColumnDef="CpuColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> CPU Usage: </th>
-    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.cpu.currentLoad }} </td>
+    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.cpu.currentLoad }} % </td>
   </ng-container>
     <ng-container matColumnDef="CpuSeverityColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> CPU Severity: </th>
@@ -25,15 +25,15 @@
   </ng-container>
   <ng-container matColumnDef="MemoryTotalColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Memory Total: </th>
-    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.totalGB }} </td>
+    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.totalGB }} GB </td>
   </ng-container>
     <ng-container matColumnDef="MemoryFreeColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header > Memory Free: </th>
-    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.freeGB }} </td>
+    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.freeGB }} GB </td>
   </ng-container>
     <ng-container matColumnDef="MemoryUsedColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Memory Used: </th>
-    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.usedGB }} </td>
+    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.memory.usedGB }} GB </td>
   </ng-container>
   <ng-container matColumnDef="MemorySeverityColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Memory Severity: </th>
@@ -43,7 +43,7 @@
   </ng-container>
     <ng-container matColumnDef="NetworkColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Download Usage: </th>
-    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.network.downloadMBps }} </td>
+    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.network.downloadMBps }} MB/s </td>
   </ng-container>
     <ng-container matColumnDef="NetworkDownloadSeverityColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Network Severity: </th>
@@ -53,7 +53,7 @@
   </ng-container>
     <ng-container matColumnDef="NetworkUploadColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Upload Usage: </th>
-    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.network.uploadMBps }} </td>
+    <td mat-cell *matCellDef="let metric"> {{ metric.metrics.network.uploadMBps }} MB/s </td>
   </ng-container>
     <ng-container matColumnDef="NetworkUploadSeverityColumn">
     <th mat-header-cell *matHeaderCellDef mat-sort-header > Network Upload Severity: </th>

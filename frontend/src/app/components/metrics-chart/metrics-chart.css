@@ -1,0 +1,22 @@
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.chart-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #757575;
+  padding: 0.25rem 0;
+}
+
+.charts-container {
+  display: flex;
+  gap: 1rem;
+}
+
+canvas {
+  max-height: 200px;
+}

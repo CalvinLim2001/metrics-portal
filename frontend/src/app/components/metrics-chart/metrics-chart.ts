@@ -33,6 +33,12 @@ cpuOptions: ChartConfiguration['options'] = {
         stepSize: 10
       }
     }
+  },
+  plugins: {
+    title: {
+      display: true,
+      text: 'CPU Usage Over Time'
+    }
   }
 };
 
@@ -53,6 +59,12 @@ memoryOptions: ChartConfiguration['options'] = {
       ticks: {
         stepSize: 2
       }
+    }
+  },
+  plugins: {
+    title: {
+      display: true,
+      text: 'Memory Usage Over Time'
     }
   }
 };
@@ -80,6 +92,12 @@ networkOptions: ChartConfiguration['options'] = {
       ticks: {
         stepSize: 1
       }
+    }
+  },
+  plugins: {
+    title: {
+      display: true,
+      text: 'Network Usage Over Time'
     }
   }
 };

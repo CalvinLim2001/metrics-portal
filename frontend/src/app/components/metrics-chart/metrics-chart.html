@@ -1,17 +1,35 @@
 <div class="chart-container">
+<div class="chart-wrapper">
   <canvas baseChart #cpuChart
     [data]="cpuData"
     [options]="cpuOptions"
     type="line">
   </canvas>
+  <div class="chart-footer">
+    <span>60 seconds</span>
+    <span>0 seconds</span>
+  </div>
+</div>
+<div class="chart-wrapper">
     <canvas baseChart #memoryChart
         [data]="memoryData"
         [options]="memoryOptions"
         type="line">
     </canvas>
+    <div class="chart-footer">
+    <span>60 seconds</span>
+    <span>0 seconds</span>
+    </div>
+  </div>
+  <div class="chart-wrapper">
     <canvas baseChart #networkChart
-  [data]="networkData"
-  [options]="networkOptions"
-  type="line">
-</canvas>
+      [data]="networkData"
+      [options]="networkOptions"
+      type="line">
+    </canvas>
+    <div class="chart-footer">
+    <span>60 seconds</span>
+    <span>0 seconds</span>
+    </div>
+  </div>
 </div>
