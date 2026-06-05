@@ -30,8 +30,11 @@ export class MetricsService {
   constructor(private http: HttpClient) {}
 
   getMetrics(): Observable<any> {
+  const host = window.location.hostname;
+  const wsUrl = `ws://${host}:3000`;
+  
   return new Observable(observer => {
-    const ws = new WebSocket('ws://localhost:3000');
+    const ws = new WebSocket(wsUrl);
     
     ws.onmessage = (event) => {
       observer.next(JSON.parse(event.data));
@@ -49,5 +52,5 @@ export class MetricsService {
       ws.close();
     };
   });
-  }
+}
 }

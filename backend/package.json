@@ -10,7 +10,7 @@
     "setup": "cd backend && npm install && cd ../frontend && npm install",
     "start": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && node agent.js",
-    "frontend": "cd frontend && ng serve"
+    "frontend": "cd frontend && ng serve --host 0.0.0.0"
 },
   "dependencies": {
     "cors": "^2.8.6",
