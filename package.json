@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
 "scripts": {
-    "setup": "cd backend && npm install && cd .. && cd frontend && npm install",
+"setup": "npm install && cd backend && npm install && cd .. && cd frontend && npm install",
     "start": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && node agent.js",
     "frontend": "cd frontend && ng serve --host 0.0.0.0"
