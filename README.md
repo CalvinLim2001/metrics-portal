@@ -6,4 +6,4 @@ To start the project clone this project into your IDE using git clone and on the
 then go to http://localhost:4200 to view the webpage, you can view this on your phone by going to http://(IPv4):4200
 
 Requirements
-- Node.js v20 or higher
+- Node.js v24
