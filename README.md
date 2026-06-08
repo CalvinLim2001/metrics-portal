@@ -7,3 +7,4 @@ then go to http://localhost:4200 to view the webpage, you can view this on your 
 
 Requirements
 - Node.js v24 or higher
+- Ports 3000 and 4200 must be available
